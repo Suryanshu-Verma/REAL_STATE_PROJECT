@@ -8,9 +8,6 @@ This repository contains code for a Real Estate Based on Ensemble techniques are
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Dependencies](#dependencies)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## Introduction
 
 The project involves importing libraries, reading datasets, generating profiles using pandas profiling, visualizing the dataset, validating missing values, selecting models, evaluating model performance, and more.
