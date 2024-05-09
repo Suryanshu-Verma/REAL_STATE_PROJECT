@@ -86,7 +86,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_
 
 Three regression models were evaluated: Linear Regression, Decision Tree Regression, and Random Forest Regression.
 
-## Predicting the Test set results  < LINEAR REGRESSION >
+## Predicting the Test set results  < Linear Regression, Decision Tree Regression, and Random Forest Regression >
 ```python
 Y_pred = LR.predict(X_test)
 np.set_printoptions(precision=2)
