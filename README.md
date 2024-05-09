@@ -88,6 +88,9 @@ Three regression models were evaluated: Linear Regression, Decision Tree Regress
 
 ## Predicting the Test set results  < Linear Regression, Decision Tree Regression, and Random Forest Regression >
 ```python
+from sklearn.linear_model import LinearRegression
+LR=LinearRegression()
+LR.fit(X_train, Y_train)
 Y_pred = LR.predict(X_test)
 np.set_printoptions(precision=2)
 print(np.concatenate((Y_pred.reshape(len(Y_pred),1), Y_test.reshape(len(Y_test),1)),1))
