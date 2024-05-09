@@ -86,6 +86,120 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_
 
 Three regression models were evaluated: Linear Regression, Decision Tree Regression, and Random Forest Regression.
 
+## Predicting the Test set results  < LINEAR REGRESSION >
+
+Y_pred = LR.predict(X_test)
+np.set_printoptions(precision=2)
+print(np.concatenate((Y_pred.reshape(len(Y_pred),1), Y_test.reshape(len(Y_test),1)),1))
+
+## Evaluating the Model Performance < LINEAR REGRESSION >
+
+from sklearn.metrics import r2_score
+
+# Assuming RMS is the R^2 score
+RMS = r2_score(Y_test, Y_pred)
+
+# Format the RMS value with two decimal points
+formatted_RMS = "{:.2f}".format(RMS)
+
+# Convert formatted_RMS to float for comparison
+formatted_RMS_float = float(formatted_RMS)
+if formatted_RMS_float==1:
+    print(f"The R^2 Score {formatted_RMS} %   'Over Fitted Model'")
+elif 0.8 < formatted_RMS_float < 0.9:
+    print(f"The R^2 Score {formatted_RMS} %   'Perfect Model'")
+elif 0.7 < formatted_RMS_float < 0.8:
+    print(f"The R^2 Score {formatted_RMS} %   'accurate Model'")
+elif 0.6 < formatted_RMS_float <0.7:
+    print(f"The R^2 Score {formatted_RMS} %   'Modrate Model'")
+elif 0.5< formatted_RMS_float < 0.6:
+    print(f"The R^2 Score {formatted_RMS} %   'Under Fitted Model'")
+else:
+    print(f"The R^2 Score {formatted_RMS} %    'Weak Model'")
+## The R^2 Score 0.59 %   'Under Fitted Model'
+
+## SELECTED MODEL < DECISION REGRESSION >
+
+from sklearn.tree import DecisionTreeRegressor
+DT= DecisionTreeRegressor(random_state = 0)
+DT.fit(X_train, Y_train)
+
+## Predicting the Test set results  < DECISION REGRESSION >
+
+Y_pred = DT.predict(X_test)
+np.set_printoptions(precision=2)
+print(np.concatenate((Y_pred.reshape(len(Y_pred),1), Y_test.reshape(len(Y_test),1)),1))
+
+## Evaluating the Model Performance < DECISION REGRESSION >
+
+from sklearn.metrics import r2_score
+
+# Assuming RMS is the R^2 score
+RMS = r2_score(Y_test, Y_pred)
+
+# Format the RMS value with two decimal points
+formatted_RMS = "{:.2f}".format(RMS)
+
+# Convert formatted_RMS to float for comparison
+formatted_RMS_float = float(formatted_RMS)
+if formatted_RMS_float==1.0:
+    print(f"The R^2 Score {formatted_RMS} %   'Over Fitted Model'")
+elif 0.8 < formatted_RMS_float < 0.9:
+    print(f"The R^2 Score {formatted_RMS} %   'Perfect Model'")
+elif 0.7 < formatted_RMS_float < 0.8:
+    print(f"The R^2 Score {formatted_RMS} %   'accurate Model'")
+elif 0.6 < formatted_RMS_float <0.7:
+    print(f"The R^2 Score {formatted_RMS} %   'Modrate Model'")
+elif 0.0 < formatted_RMS_float < 0.5:
+    print(f"The R^2 Score {formatted_RMS} %   'Under Fitted Model'")
+elif formatted_RMS_float < 0.0:
+    print(f"The R^2 Score {formatted_RMS} %   'BAD Model'")
+else:
+    print(f"The R^2 Score {formatted_RMS} %    'Weak Model'")
+## The R^2 Score 0.63 %   'Modrate Model'
+
+## SELECTED MODEL < RANDOM FOREST REGRESSION >
+
+from sklearn.ensemble import RandomForestRegressor
+RFR = RandomForestRegressor(n_estimators = 5000, random_state = 0)
+RFR.fit(X_train, Y_train)
+
+## Predicting the Test set results  < RANDOM FOREST REGRESSION >
+
+Y_predRFR = RFR.predict(X_test)
+np.set_printoptions(precision=2)
+print(np.concatenate((Y_predRFR.reshape(len(Y_predRFR),1), Y_test.reshape(len(Y_test),1)),1))
+
+## Evaluating the Model Performance < RANDOM FOREST REGRESSION >
+
+from sklearn.metrics import r2_score
+
+# Assuming RMS is the R^2 score
+RMS = r2_score(Y_test, Y_predRFR)
+
+# Format the RMS value with two decimal points
+formatted_RMS = "{:.2f}".format(RMS)
+
+# Convert formatted_RMS to float for comparison
+formatted_RMS_float = float(formatted_RMS)
+if formatted_RMS_float==1.0:
+    print(f"The R^2 Score {formatted_RMS} %   'Over Fitted Model'")
+elif 0.9 < formatted_RMS_float < 1:
+    print(f"The R^2 Score {formatted_RMS} %   'Perfect Model'")
+elif 0.8 < formatted_RMS_float < 0.9:
+    print(f"The R^2 Score {formatted_RMS} %   'accurate Model'")
+elif 0.7 < formatted_RMS_float <0.8:
+    print(f"The R^2 Score {formatted_RMS} %   'Modrate Model'")
+elif 0.5 < formatted_RMS_float < 0.6:
+    print(f"The R^2 Score {formatted_RMS} %   'Under Fitted Model'")
+elif formatted_RMS_float < 0.0:
+    print(f"The R^2 Score {formatted_RMS} %   'BAD Model'")
+else:
+    print(f"The R^2 Score {formatted_RMS} %    'Weak Model'")
+
+## The R^2 Score 0.77 %   'Modrate Model'
+
+
 ## Grid Search CV <a name="grid-search-cv"></a>
 
 ```python
