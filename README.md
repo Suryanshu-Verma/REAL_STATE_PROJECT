@@ -107,8 +107,7 @@ GCV = GridSearchCV(estimator=model, param_grid=parameters, cv=5)
 GCV.fit(X_train, Y_train)
 ```
 
-## Using the Model <a name="using-the-model"></a>
-
+## Using the Model 
 ```python
 from joblib import dump, load
 GCV = load('REAL.joblib') 
@@ -119,12 +118,13 @@ prediction = GCV.predict(features)
 print(f"The predicted price of the house is: {int(prediction)*1000} $ in Boston City")
 ```
 
-## Conclusion <a name="conclusion"></a>
+## Conclusion 
 
-The project successfully predicts house prices in Boston City using various regression techniques. The best model achieved an R-squared score of X.XX, indicating [insert conclusion here].
+The project successfully predicts house prices in Boston City using various regression techniques. Employed the Random Forest Regression algorithm for analysis with the score of 0.77. 
+The GridSearchCV achieved an R-squared score of 0.86, Utilized grid search cross-validation hyperparameter tuning to estimate property prices, optimizing feature parameters
+for increased accuracy. Achieved a 9% enhancement in model accuracy through hyperparameter tuning techniques.
+## Before Random Forest Regressor Model Predicted the House Value $30000 after Applying the GridSearchCV Model Predicted $29000 .
 
 ---
 
-This README provides an overview of the project, including data preprocessing, model selection, evaluation, and usage. It serves as a guide for users interested in understanding and replicating the analysis. Adjustments can be made to the
-
- markdown formatting and content as needed.
+This README provides an overview of the project, including data preprocessing, model selection, evaluation, and usage. It serves as a guide for users interested in understanding and replicating the analysis. 
