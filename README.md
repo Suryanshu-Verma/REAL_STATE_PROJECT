@@ -87,7 +87,7 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_
 Three regression models were evaluated: Linear Regression, Decision Tree Regression, and Random Forest Regression.
 
 ## Predicting the Test set results  < LINEAR REGRESSION >
-
+```python
 Y_pred = LR.predict(X_test)
 np.set_printoptions(precision=2)
 print(np.concatenate((Y_pred.reshape(len(Y_pred),1), Y_test.reshape(len(Y_test),1)),1))
@@ -99,10 +99,10 @@ from sklearn.metrics import r2_score
 # Assuming RMS is the R^2 score
 RMS = r2_score(Y_test, Y_pred)
 
-# Format the RMS value with two decimal points
+
 formatted_RMS = "{:.2f}".format(RMS)
 
-# Convert formatted_RMS to float for comparison
+
 formatted_RMS_float = float(formatted_RMS)
 if formatted_RMS_float==1:
     print(f"The R^2 Score {formatted_RMS} %   'Over Fitted Model'")
@@ -137,10 +137,9 @@ from sklearn.metrics import r2_score
 # Assuming RMS is the R^2 score
 RMS = r2_score(Y_test, Y_pred)
 
-# Format the RMS value with two decimal points
+
 formatted_RMS = "{:.2f}".format(RMS)
 
-# Convert formatted_RMS to float for comparison
 formatted_RMS_float = float(formatted_RMS)
 if formatted_RMS_float==1.0:
     print(f"The R^2 Score {formatted_RMS} %   'Over Fitted Model'")
@@ -177,10 +176,9 @@ from sklearn.metrics import r2_score
 # Assuming RMS is the R^2 score
 RMS = r2_score(Y_test, Y_predRFR)
 
-# Format the RMS value with two decimal points
+
 formatted_RMS = "{:.2f}".format(RMS)
 
-# Convert formatted_RMS to float for comparison
 formatted_RMS_float = float(formatted_RMS)
 if formatted_RMS_float==1.0:
     print(f"The R^2 Score {formatted_RMS} %   'Over Fitted Model'")
@@ -198,7 +196,7 @@ else:
     print(f"The R^2 Score {formatted_RMS} %    'Weak Model'")
 
 ## The R^2 Score 0.77 %   'Modrate Model'
-
+```
 
 ## Grid Search CV <a name="grid-search-cv"></a>
 
